@@ -30,7 +30,7 @@ export const Meme = () => {
         const formData = new FormData();
 
         formData.append('username', 'smajaas');
-        formData.append('password', 'Thiruvai629174');
+        formData.append('password', 'ajaas246');
         formData.append('template_id', currentMeme.id);
         captions.forEach((c, index) => formData.append(`boxes[${index}][text]`, c));
 
