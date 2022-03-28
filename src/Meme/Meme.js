@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import styles from './styles.module.css';
+import { useHistory } from 'react-router-dom';
 
 export const Meme = () => {
 
     const [memes, setMemes] = useState([]);
     const [memeIndex, setMemeIndex] = useState(0);
     const [captions, setCaptions] = useState([]);
+
+    const history = useHistory();
 
     const updateCaption = (e, index) => {
         const text = e.target.value || '';
@@ -36,10 +39,10 @@ export const Meme = () => {
             body: formData
         }).then(res => {
             res.json().then(res => {
-                console.log(res);
+                history.push(`/generated?url=${res.data.url}`);
             });
         });
-            }
+            };
 
     const shuffleMemes = (array) => {
         for (let i = array.length - 1; i > 0; i--) {

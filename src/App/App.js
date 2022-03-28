@@ -1,10 +1,21 @@
 import React from 'react';
 import { Meme } from '../Meme/Meme';
+import { Switch, Route } from 'react-router-dom'
+import { MemeGenerated } from '../MemeGenerated/MemeGenerated';
 //import styles from './styles.modules.css';
 
 export const App = () => {
   return (
-<Meme />
+    <Switch>
+      <Route exact path='/'>
+      <Meme />
+      </Route>
+      <Route path='/generated'>
+      <MemeGenerated />
+      </Route>
+    </Switch>
+    
+
   );
     
 }
